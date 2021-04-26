@@ -1,0 +1,128 @@
+paths:
+  /units/:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Unit            # Value of the tag
+      summary: get all Unit Inputs
+      produces:
+       - application/json 
+      responses:          # server responses
+        201:
+          description: Get All Unit
+        401:
+          description: Unauthorized            
+    post:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Unit            # Value of the tag
+      summary: creates a new Unit
+      produces:
+      - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: createShop     # name of request, can be any name
+        description: It enables a user to create an Unit
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/UnitInsert' 
+      responses:          # server responses
+        201:
+          description: An object with Unit details
+        401:
+          description: Unauthorized  
+    put:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Unit            # Value of the tag
+      summary: update Unit
+      produces:
+       - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: updateShop     # name of request, can be any name
+        description: It enables update Unit
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/UnitUpdate' 
+      responses:          # server responses
+        201:
+          description: An object with Unit details
+        401:
+          description: Unauthorized 
+    delete:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Unit            # Value of the tag
+      summary: delete Unit
+      produces:
+       - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: unitDelete     # name of request, can be any name
+        description: It enables delete Unit
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/UnitDelete' 
+      responses:          # server responses
+        201:
+          description: true if delete sucessfully
+        401:
+          description: Unauthorized 
+  /units/{id}:     
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Unit            # Value of the tag
+      summary: get Unit by Id
+      produces:
+       - application/json 
+      parameters:     # request parameters
+      - name: id      # name of parameter passed
+        in: path      # parameters in the path
+        description: path parameter takes the id
+        required: true
+        type: string
+      responses:          # server responses
+        201:
+          description: Get All Unit
+        401:
+          description: Unauthorized             
+
+definitions:        # Schema defination for request body
+  UnitInsert:
+    type: object
+    properties:      
+      name:
+        type: string
+      createByUserId:
+        type: string
+      updateByUserId:
+        type: string
+      createDateTime:
+        type: string
+      updateDateTime:
+        type: string
+  UnitUpdate:
+    type: object
+    properties:
+      criteria:
+        type: object
+        properties:
+          _id:
+            type: string
+      data:
+        type: object
+        properties:      
+          _id:
+            type: string
+          name:
+            type: string
+          createByUserId:
+            type: string
+          updateByUserId:
+            type: string
+          createDateTime:
+            type: string
+          updateDateTime:
+            type: string
+  UnitDelete:
+    type: object
+    properties:          
+      _id:
+        type: string

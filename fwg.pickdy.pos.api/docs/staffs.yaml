@@ -1,0 +1,159 @@
+paths:
+  /staffs/:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Staff            # Value of the tag
+      summary: get all Staff Inputs
+      produces:
+       - application/json 
+      responses:          # server responses
+        201:
+          description: Get All Staff
+        401:
+          description: Unauthorized            
+    post:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Staff            # Value of the tag
+      summary: creates a new Staff
+      produces:
+      - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: createShop     # name of request, can be any name
+        description: It enables a user to create an Staff
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/StaffInsert' 
+      responses:          # server responses
+        201:
+          description: An object with Staff details
+        401:
+          description: Unauthorized  
+    put:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Staff            # Value of the tag
+      summary: update Staff
+      produces:
+       - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: updateShop     # name of request, can be any name
+        description: It enables update Staff
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/StaffUpdate' 
+      responses:          # server responses
+        201:
+          description: An object with Staff details
+        401:
+          description: Unauthorized 
+    delete:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Staff            # Value of the tag
+      summary: delete Staff
+      produces:
+       - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: staffDelete     # name of request, can be any name
+        description: It enables delete Staff
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/StaffDelete' 
+      responses:          # server responses
+        201:
+          description: true if delete sucessfully
+        401:
+          description: Unauthorized 
+  /staffs/{id}:     
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Staff            # Value of the tag
+      summary: get staff by Id
+      produces:
+       - application/json 
+      parameters:     # request parameters
+      - name: id      # name of parameter passed
+        in: path      # parameters in the path
+        description: path parameter takes the id
+        required: true
+        type: string
+      responses:          # server responses
+        201:
+          description: Get All Staff
+        401:
+          description: Unauthorized
+  /staffs/changePassword:
+    put:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Staff            # Value of the tag
+      summary: update Staff
+      produces:
+       - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: updateShop     # name of request, can be any name
+        description: It enables update Staff
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/StaffUpdate' 
+      responses:          # server responses
+        201:
+          description: An object with Staff details
+        401:
+          description: Unauthorized                       
+
+definitions:        # Schema defination for request body
+  StaffInsert:
+    type: object
+    properties:      
+      shopId:
+        type: string
+      fullName:
+        type: string      
+      email:
+        type: string
+      userName:
+        type: string
+      password:
+        type: string
+      tel:
+        type: number  
+      role:
+        type: string
+      token:
+        type: string
+  StaffUpdate:
+    type: object
+    properties:
+      criteria:
+        type: object
+        properties:
+          _id:
+            type: string
+      data:
+        type: object
+        properties:      
+          _id:
+            type: string
+          shopId:
+            type: string
+          fullName:
+            type: string         
+          email:
+            type: string
+          userName:
+            type: string
+          password:
+            type: string
+          tel:
+            type: number  
+          role:
+            type: string
+          token:
+            type: string  
+  StaffDelete:
+    type: object
+    properties:          
+      _id:
+        type: string          

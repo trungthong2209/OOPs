@@ -1,0 +1,496 @@
+paths:
+  /orders/:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Order            # Value of the tag
+      summary: get all orders
+      produces:
+       - application/json 
+      responses:          # server responses
+        201:
+          description: Get All Order
+        401:
+          description: Unauthorized
+        204:
+          description: No Content               
+    post:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Order            # Value of the tag
+      summary: creates a new Order
+      produces:
+      - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: createOrder     # name of request, can be any name
+        description: It enables a user to create an Order
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderInsert' 
+      responses:          # server responses
+        201:
+          description: An object with Order details
+        401:
+          description: Unauthorized
+        204:
+          description: No Content     
+    put:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Order            # Value of the tag
+      summary: update Order
+      produces:
+       - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: updateOrder     # name of request, can be any name
+        description: It enables update Order
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderUpdate' 
+      responses:          # server responses
+        201:
+          description: An object with Order details
+        401:
+          description: Unauthorized
+        204:
+          description: No Content    
+    delete:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Order            # Value of the tag
+      summary: delete Order
+      produces:
+       - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: updateOrder     # name of request, can be any name
+        description: It enables delete Order
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderDelete' 
+      responses:          # server responses
+        201:
+          description: true if delete sucessfully
+        401:
+          description: Unauthorized
+        204:
+          description: No Content    
+  /orders/{id}:     
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Order            # Value of the tag
+      summary: get all orders by Id
+      produces:
+       - application/json 
+      parameters:     # request parameters
+      - name: id      # name of parameter passed
+        in: path      # parameters in the path
+        description: path parameter takes the id
+        required: true
+        type: string
+      responses:          # server responses
+        201:
+          description: Get All Order
+        401:
+          description: Unauthorized
+        204:
+          description: No Content   
+  /orders/cancelOrder:     
+    put:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Order            # Value of the tag
+      summary: Cancel Order
+      produces:
+       - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: updateOrder     # name of request, can be any name
+        description: It enables cancel Order
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderCancel' 
+      responses:          # server responses
+        201:
+          description: An object with Order details
+        401:
+          description: Unauthorized
+        204:
+          description: No Content
+  /orders/cancelBill:     
+    put:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Order            # Value of the tag
+      summary: Cancel Order BIll
+      produces:
+       - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: updateOrder     # name of request, can be any name
+        description: It enables cancel Order
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderCancel' 
+      responses:          # server responses
+        201:
+          description: An object with Order details
+        401:
+          description: Unauthorized
+        204:
+          description: No Content
+  /orders/returnMoneyBill:     
+    put:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Order            # Value of the tag
+      summary: Cancel Order BIll
+      produces:
+       - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: updateOrder     # name of request, can be any name
+        description: It enables cancel Order
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderCancel' 
+      responses:          # server responses
+        201:
+          description: An object with Order details
+        401:
+          description: Unauthorized
+        204:
+          description: No Content          
+  /orders/mergeOrder:     
+    put:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Order            # Value of the tag
+      summary: Merge Order
+      produces:
+       - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: updateOrder     # name of request, can be any name
+        description: It enables cancel Order
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderMerge' 
+      responses:          # server responses
+        201:
+          description: An object with Order details
+        401:
+          description: Unauthorized
+        204:
+          description: No Content
+  /orders/splitOrder:     
+    put:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Order            # Value of the tag
+      summary: Split Order
+      produces:
+       - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: updateOrder     # name of request, can be any name
+        description: It enables Split Order
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderSplit' 
+      responses:          # server responses
+        201:
+          description: An object with Order details
+        401:
+          description: Unauthorized
+        204:
+          description: No Content                                             
+
+definitions:        # Schema defination for request body
+  OrderInsert:
+    type: object
+    properties:      
+      guestId : 
+        type: string
+      orderDateTime :
+        type: string
+      status :
+        type: boolean
+      comment :
+        type: string
+      table :
+        type: string        
+      discount :
+        type: number
+      discountEvents :
+        type: array
+        items:
+          type: string    
+      orderType :
+        type: string
+      source :
+        type: string
+      quotedInterval :
+        type: number
+      hasUnreadSMS :
+        type: boolean
+      isPaidDeposit :
+        type: boolean
+      depositRules :
+        type: array
+        items:
+          type: object
+          properties:
+            productItemId :
+              type: string
+            productName :
+              type: string
+            quantity :
+              type: number            
+            priceOrder :
+              type: number
+            cancel :
+              type: boolean
+            productItemAdditionals :
+               type: object
+               properties:
+                productItemId :
+                  type: string
+                productName :
+                  type: string
+                quantity :
+                  type: number
+                priceOrder :
+                  type: number
+                cancel :
+                  type: boolean
+      shopId :
+        type: string
+      staffId :
+        type: string
+      priceOrder :
+        type: number
+      priceDeposit :
+        type: number
+      createByUserId :
+        type: string
+      updateByUserId :
+        type: string
+      createDateTime :
+        type: string
+      updateDateTime :
+        type: string
+      paymentMethod :
+        type: string
+      tax :
+        type: number
+      serviceFee :
+        type: number
+      tip :
+        type: number
+      peopleCount :
+        type: number          
+  OrderUpdate:
+    type: object
+    properties:
+      criteria:
+        type: object
+        properties:
+          _id:
+            type: string
+      data:
+        type: object
+        properties:      
+          _id:
+            type: string
+          guestId : 
+            type: string
+          orderDateTime :
+            type: string
+          status :
+            type: boolean
+          comment :
+            type: string
+          table :
+            type: string        
+          discount :
+            type: number
+          discountEvents :
+            type: array
+            items:
+              type: string  
+          orderType :
+            type: string
+          source :
+            type: string
+          quotedInterval :
+            type: number
+          hasUnreadSMS :
+            type: boolean
+          isPaidDeposit :
+            type: boolean
+          depositRules :
+            type: array
+            items:
+              type: object
+              properties:
+                productItemId :
+                  type: string
+                productName :
+                  type: string
+                quantity :
+                  type: number            
+                priceOrder :
+                  type: number
+                cancel :
+                  type: boolean
+                productItemAdditionals :
+                  type: object
+                  properties:
+                    productItemId :
+                      type: string
+                    productName :
+                      type: string
+                    quantity :
+                      type: number
+                    priceOrder :
+                      type: number
+                    cancel :
+                      type: boolean              
+          shopId :
+            type: string
+          staffId :
+            type: string
+          priceOrder :
+            type: number
+          priceDeposit :
+            type: number
+          createByUserId :
+            type: string
+          updateByUserId :
+            type: string
+          createDateTime :
+            type: string
+          updateDateTime :
+            type: string
+          paymentMethod :
+            type: string
+          tax :
+            type: number
+          serviceFee :
+            type: number
+          tip :
+            type: number
+          peopleCount :
+            type: number      
+  OrderDelete:
+    type: object
+    properties:          
+      _id:
+        type: string          
+  OrderCancel:
+    type: object
+    properties:      
+      _id:
+        type: string
+  OrderMerge:
+    type: object
+    properties:      
+      _id:
+        type: string
+      toId:
+        type: string
+  OrderSplit:
+    type: object
+    properties:      
+      _id:
+        type: string
+      guestId : 
+        type: string
+      orderDateTime :
+        type: string
+      status :
+        type: boolean
+      comment :
+        type: string
+      table :
+        type: string
+      toTable :
+        type: string          
+      discount :
+        type: string
+      orderType :
+        type: string
+      source :
+        type: string
+      quotedInterval :
+        type: number
+      hasUnreadSMS :
+        type: boolean
+      isPaidDeposit :
+        type: boolean
+      depositRules :
+        type: array
+        items:
+          type: object
+          properties:
+            productItemId :
+              type: string
+            productName :
+              type: string
+            quantity :
+              type: number            
+            priceOrder :
+              type: number
+            cancel :
+              type: boolean
+            productItemAdditionals :
+               type: object
+               properties:
+                productItemId :
+                  type: string
+                productName :
+                  type: string
+                quantity :
+                  type: number
+                priceOrder :
+                  type: number
+                cancel :
+                  type: boolean
+      toDepositRules :
+        type: array
+        items:
+          type: object
+          properties:
+            productItemId :
+              type: string
+            productName :
+              type: string
+            quantity :
+              type: number            
+            priceOrder :
+              type: number
+            cancel :
+              type: boolean
+            productItemAdditionals :
+               type: object
+               properties:
+                productItemId :
+                  type: string
+                productName :
+                  type: string
+                quantity :
+                  type: number
+                priceOrder :
+                  type: number
+                cancel :
+                  type: boolean                    
+      shopId :
+        type: string
+      staffId :
+        type: string
+      priceOrder :
+        type: number
+      priceDeposit :
+        type: number
+      createByUserId :
+        type: string
+      updateByUserId :
+        type: string
+      createDateTime :
+        type: string
+      updateDateTime :
+        type: string                     

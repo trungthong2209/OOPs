@@ -1,0 +1,17 @@
+npm-debug.log
+dist/build
+fwg.pickdy.common/**/*.js
+fwg.pickdy.common/**/*.js.map
+fwg.pickdy.common/node_modules/*
+fwg.pickdy.pos.common/**/*.js
+fwg.pickdy.pos.common/**/*.js.map
+fwg.pickdy.pos.common/node_modules/*
+fwg.pickdy.pos.api/dist/build/*
+fwg.pickdy.pos.api/**/*.js.map
+fwg.pickdy.pos.api/node_modules/*
+logs/*
+/**/node_modules
+node_modules
+/**/dist/build
+/**/dist/build/*
+/**/logs/*

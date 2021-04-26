@@ -1,0 +1,21 @@
+application:
+  name: dashboard   
+  serverGroup: 000  
+build:
+  type: expressjs    
+  tool: cli         
+  script: run         
+  target:
+    - install_global_dependencies
+    - build_common
+    - build_pos_common
+    - build
+package:
+  type: rpm      
+repository:
+  -   
+service:
+  name: pickdy.pos.com
+  version: 1.0.0    
+  buildDir: fwg.pickdy.pos.api/dist/build
+  webDir: fwg.pickdy.pos.api/dist        

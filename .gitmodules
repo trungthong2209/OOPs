@@ -1,0 +1,6 @@
+[submodule "fwg.pickdy.common"]
+	path = fwg.pickdy.common
+	url = git@bitbucket.org:fwg_pickdy_common/fwg-pickdy-sharring-common.git
+[submodule "fwg.pickdy.pos.common"]
+	path = fwg.pickdy.pos.common
+	url = git@bitbucket.org:fwg_pickdy_common/fwg-pickdy-common.git

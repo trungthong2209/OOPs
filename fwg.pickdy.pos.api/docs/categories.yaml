@@ -1,0 +1,140 @@
+paths:
+  /categories/:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Category            # Value of the tag
+      summary: get all Categories
+      produces:
+       - application/json 
+      responses:          # server responses
+        201:
+          description: Get All Category
+        401:
+          description: Unauthorized            
+    post:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Category            # Value of the tag
+      summary: creates a new Category
+      produces:
+      - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: createCategory     # name of request, can be any name
+        description: It enables a user to create an Category
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/categoryInsert'
+        example:   # Sample object         
+          categoryName : Cafe,
+          shopId : 5ca42b3611f6b6184f4b4cf7,
+          parentCategoryId : null,
+          code : CAF
+      responses:          # server responses
+        201:
+          description: An object with category details
+        401:
+          description: Unauthorized  
+    put:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Category            # Value of the tag
+      summary: update Category
+      produces:
+       - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: updateCategory     # name of request, can be any name
+        description: It enables update Category
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/categoryUpdate' 
+      responses:          # server responses
+        201:
+          description: An object with category details
+        401:
+          description: Unauthorized 
+    delete:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Category            # Value of the tag
+      summary: delete Category
+      produces:
+       - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: categoryDelete     # name of request, can be any name
+        description: It enables delete Category
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/categoryDelete' 
+      responses:          # server responses
+        201:
+          description: true if delete sucessfully
+        401:
+          description: Unauthorized 
+  /categories/{id}:     
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Category            # Value of the tag
+      summary: get all Categories by Id
+      produces:
+       - application/json 
+      parameters:     # request parameters
+      - name: id      # name of parameter passed
+        in: path      # parameters in the path
+        description: path parameter takes the pet id
+        required: true
+        type: string
+      responses:          # server responses
+        201:
+          description: Get All Category
+        401:
+          description: Unauthorized             
+  /categories/getAllCategoryAndProductItemCount:     
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Category            # Value of the tag
+      summary: get all Categories
+      produces:
+       - application/json 
+      responses:          # server responses
+        201:
+          description: Get All Category
+        401:
+          description: Unauthorized
+definitions:        # Schema defination for request body
+  categoryInsert:
+    type: object       
+    properties:
+      categoryName:
+        type: string
+      shopId:
+        type: string
+      parentCategoryId:
+        type: string
+      code:
+        type: string   
+  categoryUpdate:
+    type: object
+    properties:
+      criteria:
+        type: object
+        properties:
+          _id:
+            type: string
+      data:
+        type: object
+        properties:          
+          _id:
+            type: string
+          ategoryName:
+            type: string
+          shopId:
+            type: string
+          parentCategoryId:
+            type: string
+          code:
+            type: string
+  categoryDelete:
+    type: object
+    properties:          
+      _id:
+        type: string            

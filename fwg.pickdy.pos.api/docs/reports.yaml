@@ -1,0 +1,310 @@
+paths:
+  /reports/orderSummariesAndChart:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Reports            # Value of the tag
+      summary: Report order Summaries And Chart {"searchCriterial":{"invoiceNumber":null,"fromDate":null,"toDate":null,"fromTime":"00:00","toTime":"23:59","staffId":null,"payment":"CASH","serviceType":null,"status":null}}
+      produces:
+       - application/json 
+      parameters:     # request parameters
+      - name: search      # name of parameter passed
+        in: query      # parameters in the path
+        description: param
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderReport'
+      responses:          # server responses
+        201:
+          description: OrderReport
+        401:
+          description: Unauthorized
+  /reports/orderPaymentsAndChart:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Reports            # Value of the tag
+      summary: Report order Payments And Chart {"searchCriterial":{"invoiceNumber":null,"fromDate":null,"toDate":null,"fromTime":"00:00","toTime":"23:59","staffId":null,"payment":"CASH","serviceType":null,"status":null}}
+      produces:
+       - application/json 
+      parameters:     # request parameters
+      - name: search      # name of parameter passed
+        in: query      # parameters in the path
+        description: param
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderReport'
+      responses:          # server responses
+        201:
+          description: OrderReport
+        401:
+          description: Unauthorized
+  /reports/orderStaffAndChart:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Reports            # Value of the tag
+      summary: Report order Staff And Chart  {"searchCriterial":{"invoiceNumber":null,"fromDate":null,"toDate":null,"fromTime":"00:00","toTime":"23:59","staffId":null,"payment":"CASH","serviceType":null,"status":null}}
+      produces:
+       - application/json 
+      parameters:     # request parameters
+      - name: search      # name of parameter passed
+        in: query      # parameters in the path
+        description: param
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderReport'
+      responses:          # server responses
+        201:
+          description: OrderReport
+        401:
+          description: Unauthorized
+  /reports/orderStaffDetail:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Reports            # Value of the tag
+      summary: Report order Staff Detail  {"searchCriterial":{"invoiceNumber":null,"fromDate":null,"toDate":null,"fromTime":"00:00","toTime":"23:59","staffId":null,"payment":"CASH","serviceType":null,"status":null}}
+      produces:
+       - application/json 
+      parameters:     # request parameters
+      - name: search      # name of parameter passed
+        in: query      # parameters in the path
+        description: param
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderReport'
+      responses:          # server responses
+        201:
+          description: OrderReport
+        401:
+          description: Unauthorized        
+  /reports/orderTaxServiceFeeAndChart:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Reports            # Value of the tag
+      summary: Report order Tax Service Fee And Chart {"searchCriterial":{"invoiceNumber":null,"fromDate":null,"toDate":null,"fromTime":"00:00","toTime":"23:59","staffId":null,"payment":"CASH","serviceType":null,"status":null}}
+      produces:
+       - application/json 
+      parameters:     # request parameters
+      - name: search      # name of parameter passed
+        in: query      # parameters in the path
+        description: param
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderReport'
+      responses:          # server responses
+        201:
+          description: OrderReport
+        401:
+          description: Unauthorized
+  /reports/orderProductCategoryAndChart:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Reports            # Value of the tag
+      summary: Report order Product Category And Chart {"searchCriterial":{"invoiceNumber":null,"fromDate":null,"toDate":null,"fromTime":"00:00","toTime":"23:59","staffId":null,"payment":"CASH","serviceType":null,"status":null}}
+      produces:
+       - application/json 
+      parameters:     # request parameters
+      - name: search      # name of parameter passed
+        in: query      # parameters in the path
+        description: param
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderReport'
+      responses:          # server responses
+        201:
+          description: OrderReport
+        401:
+          description: Unauthorized
+  /reports/orderProductItemAndChart:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Reports            # Value of the tag
+      summary: Report order Product Item And Chart {"searchCriterial":{"invoiceNumber":null,"fromDate":null,"toDate":null,"fromTime":"00:00","toTime":"23:59","staffId":null,"payment":"CASH","serviceType":null,"status":null}}
+      produces:
+       - application/json 
+      parameters:     # request parameters
+      - name: search      # name of parameter passed
+        in: query      # parameters in the path
+        description: param
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderReport'
+      responses:          # server responses
+        201:
+          description: OrderReport
+        401:
+          description: Unauthorized
+  /reports/orderInStore:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Reports            # Value of the tag
+      summary: Report order In Store {"searchCriterial":{"invoiceNumber":null,"fromDate":null,"toDate":null,"fromTime":"00:00","toTime":"23:59","staffId":null,"payment":"CASH","serviceType":null,"status":null}}
+      produces:
+       - application/json 
+      parameters:     # request parameters
+      - name: search      # name of parameter passed
+        in: query      # parameters in the path
+        description: param
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderReport'
+      responses:          # server responses
+        201:
+          description: OrderReport
+        401:
+          description: Unauthorized
+  /reports/orderBillCancel:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Reports            # Value of the tag
+      summary: Report order Bill Cancel  {"searchCriterial":{"invoiceNumber":null,"fromDate":null,"toDate":null,"fromTime":"00:00","toTime":"23:59","staffId":null,"payment":"CASH","serviceType":null,"status":null}}
+      produces:
+       - application/json 
+      parameters:     # request parameters
+      - name: search      # name of parameter passed
+        in: query      # parameters in the path
+        description: param
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderReport'
+      responses:          # server responses
+        201:
+          description: OrderReport
+        401:
+          description: Unauthorized
+  /reports/orderCancel:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Reports            # Value of the tag
+      summary: Report order Cancel  {"searchCriterial":{"invoiceNumber":null,"fromDate":null,"toDate":null,"fromTime":"00:00","toTime":"23:59","staffId":null,"payment":"CASH","serviceType":null,"status":null}}
+      produces:
+       - application/json 
+      parameters:     # request parameters
+      - name: search      # name of parameter passed
+        in: query      # parameters in the path
+        description: param
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderReport'
+      responses:          # server responses
+        201:
+          description: OrderReport
+        401:
+          description: Unauthorized
+  /reports/orderItemCancel:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Reports            # Value of the tag
+      summary: Report order Item Cancel  {"searchCriterial":{"invoiceNumber":null,"fromDate":null,"toDate":null,"fromTime":"00:00","toTime":"23:59","staffId":null,"payment":"CASH","serviceType":null,"status":null}}
+      produces:
+       - application/json 
+      parameters:     # request parameters
+      - name: search      # name of parameter passed
+        in: query      # parameters in the path
+        description: param
+        schema:           # Schema definition
+          $ref: '#/definitions/OrderReport'
+      responses:          # server responses
+        201:
+          description: OrderReport
+        401:
+          description: Unauthorized 
+  /reports/currentOrders:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Reports            # Value of the tag
+      summary: Report current Orders
+      produces:
+       - application/json     
+      responses:          # server responses
+        201:
+          description: OrderReport
+        401:
+          description: Unauthorized
+  /reports/currentOrdersDetail:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Reports            # Value of the tag
+      summary: Report current Orders Detail
+      produces:
+       - application/json     
+      responses:          # server responses
+        201:
+          description: OrderReport
+        401:
+          description: Unauthorized        
+  /reports/currentBills:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Reports            # Value of the tag
+      summary: Report current Bills
+      produces:
+       - application/json     
+      responses:          # server responses
+        201:
+          description: OrderReport
+        401:
+          description: Unauthorized        
+  /reports/currentWeekOrders:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Reports            # Value of the tag
+      summary: Report current Orders in 7 days
+      produces:
+       - application/json     
+      responses:          # server responses
+        201:
+          description: OrderReport
+        401:
+          description: Unauthorized
+  /reports/reportInventory:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Reports            # Value of the tag
+      summary: Report Inventory  {"searchCriterial":{"fromDate":null,"toDate":null,"fromTime":"00:00","toTime":"23:59","rawMaterialType":null}}
+      produces:
+       - application/json 
+      parameters:     # request parameters
+      - name: search      # name of parameter passed
+        in: query      # parameters in the path
+        description: param
+        schema:           # Schema definition
+          $ref: '#/definitions/InventoryReport'
+      responses:          # server responses
+        201:
+          description: InventoryReport
+        401:
+          description: Unauthorized                                                                                                        
+definitions:        # Schema defination for request body
+  OrderReport:
+    type: object       
+    properties:
+      _id:
+        type: string
+      searchCriterial:
+        type: object
+        properties:
+          orderNumber:
+            type: string
+          fromDate:
+            type: string
+          toDate:
+            type: string    
+          fromTime:
+            type: string
+          toTime:
+            type: string
+          staffId:
+            type: string
+          payment:
+            type: string
+          serviceType:
+            type: string
+          status:
+            type: string
+  InventoryReport:
+    type: object       
+    properties:
+      _id:
+        type: string
+      searchCriterial:
+        type: object
+        properties:          
+          fromDate:
+            type: string
+          toDate:
+            type: string    
+          fromTime:
+            type: string
+          toTime:
+            type: string
+          rawMaterialType:
+            type: string        

@@ -1,0 +1,10 @@
+npm-debug.log
+dist/build
+fwg.pickdy.pos.common/**/*.js
+fwg.pickdy.pos.common/**/*.js.map
+fwg.pickdy.pos.common/**/*.js.map
+/**/node_modules
+node_modules
+/**/dist
+/**/dist/*
+dist

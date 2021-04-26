@@ -1,0 +1,240 @@
+paths:
+  /productItems/:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - ProductItem            # Value of the tag
+      summary: get all ProductItems
+      produces:
+       - application/json 
+      responses:          # server responses
+        201:
+          description: Get All ProductItem
+        401:
+          description: Unauthorized            
+    post:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - ProductItem            # Value of the tag
+      summary: creates a new ProductItem
+      produces:
+      - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: createShop     # name of request, can be any name
+        description: It enables a user to create an ProductItem
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/ProductItemInsert' 
+      responses:          # server responses
+        201:
+          description: An object with ProductItem details
+        401:
+          description: Unauthorized  
+    put:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - ProductItem            # Value of the tag
+      summary: update ProductItem
+      produces:
+       - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: updateShop     # name of request, can be any name
+        description: It enables update ProductItem
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/ProductItemUpdate' 
+      responses:          # server responses
+        201:
+          description: An object with ProductItem details
+        401:
+          description: Unauthorized 
+    delete:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - ProductItem            # Value of the tag
+      summary: delete ProductItem
+      produces:
+       - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: productItemDelete     # name of request, can be any name
+        description: It enables delete ProductItem
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/ProductItemDelete' 
+      responses:          # server responses
+        201:
+          description: true if delete sucessfully
+        401:
+          description: Unauthorized 
+  /productItems/{id}:     
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - ProductItem            # Value of the tag
+      summary: get all ProductItems by Id
+      produces:
+       - application/json 
+      parameters:     # request parameters
+      - name: id      # name of parameter passed
+        in: path      # parameters in the path
+        description: path parameter takes the id
+        required: true
+        type: string
+      responses:          # server responses
+        201:
+          description: Get All ProductItem
+        401:
+          description: Unauthorized
+  /productItems/getAllProductModifier:     
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - ProductItem            # Value of the tag
+      summary: get all Product Modifier
+      produces:
+       - application/json 
+      responses:          # server responses
+        201:
+          description: Get All Product Modifier
+        401:
+          description: Unauthorized                      
+
+definitions:        # Schema defination for request body
+  ProductItemInsert:
+    type: object
+    properties:     
+      productName:
+        type: string
+      priceDefault:
+        type: string
+      unitType:
+        type: string
+      shopId:
+        type: string
+      categories:
+        type: string	
+      createByUserId:
+        type: string
+      updateByUserId:
+        type: string
+      createDateTime:
+        type: string
+      updateDateTime:
+        type: string
+      currency:
+        type: string
+      rawMaterials:
+        type: array
+        items:
+          type: object
+          properties:
+            rawMaterialId:
+              type: string
+            amount:
+              type: number
+            minAmount:
+              type: number
+            trackingType:
+              type: string  
+      prices:
+        type: array
+        items:
+          type: object
+          properties:
+            priceType:
+              type: string
+            name:
+              type: string
+            price:
+              type: number
+      printers:
+        type: array
+        items:
+          type:string
+      image:
+        type: string
+      minValue:
+        type: number
+      maxValue:
+        type: number
+      itemAdditionals:
+        type: array
+        items:
+          type: string
+      description:
+        type: string    
+  ProductItemUpdate:
+    type: object
+    properties:
+      criteria:
+        type: object
+        properties:
+          _id:
+            type: string
+      data:
+        type: object
+        properties:      
+          _id:
+            type: string
+          productName:
+            type: string
+          priceDefault:
+            type: string
+          unitType:
+            type: string
+          shopId:
+            type: string
+          categories:
+            type: string	
+          createByUserId:
+            type: string
+          updateByUserId:
+            type: string
+          createDateTime:
+            type: string
+          updateDateTime:
+            type: string
+          currency:
+            type: string
+          rawMaterials:
+            type: array
+            items:
+              type: object
+              properties:
+                rawMaterialId:
+                  type: string
+                amount:
+                  type: number
+                minAmount:
+                  type: number
+                trackingType:
+                  type: string
+          prices:
+            type: array
+            items:
+              type: object
+              properties:
+                priceType:
+                  type: string
+                name:
+                  type: string
+                price:
+                  type: number
+          printers:
+            type: array
+            items:
+              type:string
+          image:
+            type: string
+          minValue:
+            type: number
+          maxValue:
+            type: number
+          itemAdditionals:
+            type: array
+            items:
+              type: string
+          description:
+            type: string  
+  ProductItemDelete:
+    type: object
+    properties:          
+      _id:
+        type: string

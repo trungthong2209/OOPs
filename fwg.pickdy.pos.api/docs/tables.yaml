@@ -1,0 +1,176 @@
+paths:
+  /tables/:                # path of the user from your endpoint
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Table            # Value of the tag
+      summary: get all Table Inputs
+      produces:
+       - application/json 
+      responses:          # server responses
+        201:
+          description: Get All Table
+        401:
+          description: Unauthorized            
+    post:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Table            # Value of the tag
+      summary: creates a new Table
+      produces:
+      - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: createShop     # name of request, can be any name
+        description: It enables a user to create an Table
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/TableInsert' 
+      responses:          # server responses
+        201:
+          description: An object with Table details
+        401:
+          description: Unauthorized  
+    put:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Table            # Value of the tag
+      summary: update Table
+      produces:
+       - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: updateShop     # name of request, can be any name
+        description: It enables update Table
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/TableUpdate' 
+      responses:          # server responses
+        201:
+          description: An object with Table details
+        401:
+          description: Unauthorized 
+    delete:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Table            # Value of the tag
+      summary: delete Table
+      produces:
+       - application/json
+      parameters:         # request parameters
+      - in: body          # request body
+        name: tableDelete     # name of request, can be any name
+        description: It enables delete Table
+        required: false   # can also be true depending on user preference
+        schema:           # Schema definition
+          $ref: '#/definitions/TableDelete' 
+      responses:          # server responses
+        201:
+          description: true if delete sucessfully
+        401:
+          description: Unauthorized 
+  /tables/{id}:     
+    get:                 # endpoint request type (post request)
+      tags:               # Tag property
+        - Table            # Value of the tag
+      summary: get Table by Id
+      produces:
+       - application/json 
+      parameters:     # request parameters
+      - name: id      # name of parameter passed
+        in: path      # parameters in the path
+        description: path parameter takes the id
+        required: true
+        type: string
+      responses:          # server responses
+        201:
+          description: Get All Table
+        401:
+          description: Unauthorized             
+
+definitions:        # Schema defination for request body
+  TableInsert:
+    type: object
+    properties:      
+      tableName:
+        type: string
+      shopId:
+        type: string
+      top:
+        type: number
+      left:
+        type: number
+      radius:
+        type: number
+      width:
+        type: number
+      height:
+        type: number
+      scaleX:
+        type: number
+      scaleY:
+        type: number
+      angle:
+        type: number      
+      shape:
+        type: string
+      seats:
+        type: number
+      floor:
+        type: number
+      createByUserId:
+        type: string
+      updateByUserId:
+        type: string
+      createDateTime:
+        type: string;
+      updateDateTime:
+        type: string
+  TableUpdate:
+    type: object
+    properties:
+      criteria:
+        type: object
+        properties:
+          _id:
+            type: string
+      data:
+        type: object
+        properties:      
+          _id:
+            type: string
+          tableName:
+            type: string
+          shopId:
+            type: string
+          top:
+            type: number
+          left:
+            type: number
+          radius:
+            type: number
+          width:
+            type: number
+          height:
+            type: number
+          scaleX:
+            type: number
+          scaleY:
+            type: number
+          angle:
+            type: number         
+          shape:
+            type: string
+          seats:
+            type: number
+          floor:
+            type: number
+          createByUserId:
+            type: string
+          updateByUserId:
+            type: string
+          createDateTime:
+            type: string;
+          updateDateTime:
+            type: string
+  TableDelete:
+    type: object
+    properties:          
+      _id:
+        type: string            

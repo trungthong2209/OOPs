@@ -1,0 +1,22 @@
+{
+  "name": "fwg-pickdy",
+  "version": "0.1.0",
+  "description": "fwg pickdy",
+  "author": "FWG",
+  "url": "https://pickdy.com",
+  "copyright": "Copyright 2019 FWG",
+  "license": "MIT",
+  "scripts": {
+    "install_global_dependencies": "npm install -g typescript && npm install -g nodemon && npm install -g typedoc && npm install apidoc-swagger -g",
+    "start": "cd fwg.pickdy.pos.api && npm install && npm run start",
+    "build": "cd fwg.pickdy.pos.api && npm install && npm run build",
+    "build_common": "cd fwg.pickdy.common && npm install",
+    "build_pos_common": "cd fwg.pickdy.pos.common && npm install"
+  },
+  "private": true,
+  "devDependencies": {},
+  "dependencies": {
+    "@types/express": "^4.17.0",
+    "typings": "^2.1.1"
+  }
+}

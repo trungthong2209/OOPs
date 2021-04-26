@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib":["es6","dom"],
+    "outDir": "./dist/build",
+    "module": "commonjs",
+    "declaration": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "removeComments": true,
+    //"noUnused": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "inlineSources": true,
+	  "experimentalDecorators": true,
+    "types": ["node"]
+    
+  },
+//  "include": [
+//    "./**/*.d.ts",
+//    "./typings/**/*"
+//
+//  ], 
+  "typeRoots" : [
+    "./typings",
+    "./node_modules/@types"
+  ]
+}
